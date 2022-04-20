@@ -26,21 +26,27 @@ const CompleteForm = () => {
         validationSchema={EmailValidationSchema}
         onSubmit={handleFormSubmission}
       >
-        <Form className="" action="#" method="POST">
-          <TextInput
-            label="Enter your email"
-            name="email"
-            id="email"
-            type="email"
-          />
+        {({ dirty, isValid }) => (
+          <Form className="" action="#" method="POST">
+            <TextInput
+              label="Enter your email"
+              name="email"
+              id="email"
+              type="email"
+            />
 
-          <div className="btn">
-            <div>
-              <Back />
-              <Button type="submit" text="Complete Submission" />
+            <div className="btn">
+              <div>
+                <Back />
+                <Button
+                  type="submit"
+                  text="Complete Submission"
+                  disabled={!(isValid && dirty)}
+                />
+              </div>
             </div>
-          </div>
-        </Form>
+          </Form>
+        )}
       </Formik>
     </div>
   );
