@@ -14,11 +14,8 @@ const NameForm = () => {
   const dispatch = useDispatch();
 
   const handleNameSubmission = (values) => {
-    const name = values.name;
-    if (name.trim().length >= 1) {
-      dispatch(updateForm({ type: "name", data: name }));
-      dispatch(nextStep());
-    }
+    dispatch(updateForm({ type: "name", data: values.name }));
+    dispatch(nextStep());
   };
 
   return (
