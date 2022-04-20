@@ -9,7 +9,6 @@ import { updateForm } from "../../redux/slice/form-slice";
 import { nextStep } from "../../redux/slice/step-slice";
 import Button from "../UI/Button";
 
-
 const NameForm = () => {
   const formDetails = useSelector((state) => state.form);
   const dispatch = useDispatch();
@@ -31,18 +30,24 @@ const NameForm = () => {
         validationSchema={NameValidationSchema}
         onSubmit={handleNameSubmission}
       >
-        <Form className="" action="#" method="POST">
-          <TextInput
-            label="Enter your name"
-            id="name"
-            name="name"
-            type="text"
-          />
+        {({ dirty, isValid }) => (
+          <Form className="" action="#" method="POST">
+            <TextInput
+              label="Enter your name"
+              id="name"
+              name="name"
+              type="text"
+            />
 
-          <div className="pt-4 flex justify-end">
-            <Button type="submit" text="Next Step" />
-          </div>
-        </Form>
+            <div className="pt-4 flex justify-end">
+              <Button
+                type="submit"
+                text="Next Step"
+                disabled={!(isValid && dirty)}
+              />
+            </div>
+          </Form>
+        )}
       </Formik>
     </div>
   );
