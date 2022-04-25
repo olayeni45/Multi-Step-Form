@@ -1,8 +1,8 @@
 import React from "react";
-import { prevStep } from "../../redux/slice/step-slice";
+import { prevStep } from "../../../redux/slice/form-slice";
 import { useDispatch } from "react-redux";
 
-const Back = () => {
+const BackButton = () => {
   const dispatch = useDispatch();
   return (
     <button
@@ -15,4 +15,4 @@ const Back = () => {
   );
 };
 
-export default Back;
+export default BackButton;
