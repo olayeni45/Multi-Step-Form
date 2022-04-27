@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~antd/dist/antd.css";
 
 body {
   margin: 0;
@@ -44,12 +45,12 @@ body {
   @apply border-none;
 }
 
-.ant-tooltip-arrow-content{
+.ant-tooltip-arrow-content {
   @apply !bg-green-500;
 }
 
-.ant-slider-dot-active{
-  @apply border border-green-500
+.ant-slider-dot-active {
+  @apply border border-green-500;
 }
 
 .ant-tooltip-inner {
