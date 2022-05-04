@@ -9,16 +9,12 @@ const NameForm = () => {
   const { NameValidationSchema, data, TextInput } = useRegistration();
   const dispatch = useDispatch();
 
-  const handleNameSubmission = (values) => {
-    dispatch(nextStep(values));
-  };
-
   return (
     <Fragment>
       <Formik
         initialValues={data}
         validationSchema={NameValidationSchema}
-        onSubmit={handleNameSubmission}
+        onSubmit={(values) => dispatch(nextStep(values))}
       >
         {({ isValid }) => (
           <Form className="" action="#" method="POST">

@@ -62,13 +62,10 @@ export const formSlice = createSlice({
     prevStep: (state, action) => {
       state.view = formViews[(state.view.progress -= 1)];
     },
-    jumpToView: (state, action) => {
-      state.view = formViews[(state.view.progress = action.payload)];
-    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { nextStep, prevStep, jumpToView } = formSlice.actions;
+export const { nextStep, prevStep } = formSlice.actions;
 
 export default formSlice.reducer;

@@ -1,6 +1,6 @@
 import React from "react";
 import * as Yup from "yup";
-import { useField } from "formik";
+import { Field, useField } from "formik";
 import { useSelector } from "react-redux";
 import BudgetForm from "../Pages/registration/views/BudgetForm";
 import CompleteForm from "../Pages/registration/views/CompleteForm";
@@ -14,15 +14,11 @@ const NameValidationSchema = Yup.object({
 });
 
 const DescribeValidationSchema = Yup.object({
-  describes: Yup.string()
-    .oneOf(["New Business", "Existing Business"], "Invalid Description")
-    .required("A description is required"),
+  description: Yup.string().required("A description is required"),
 });
 
 const ServicesValidationSchema = Yup.object({
-  services: Yup.string()
-    .oneOf(["Website Development", "Existing Business"], "Invalid Service")
-    .required("A service is required"),
+  services: Yup.string().required("A service is required"),
 });
 
 const BudgetValidationSchema = Yup.object({
@@ -54,6 +50,31 @@ const TextInput = ({ label, ...props }) => {
         <div className="text-red-500 pl-1 pt-2">{meta.error}</div>
       ) : null}
     </>
+  );
+};
+
+const RadioButton = ({ heading, subtext, name, emoji }) => {
+  return (
+    <div className="pb-4">
+      <label className="cursor-pointer">
+        <Field
+          type="radio"
+          name={name}
+          value={heading}
+          className="peer hidden"
+        />
+        <div className="peer-checked:border-green-500  border border-gray-500 border-opacity-50 flex py-4 px-4 rounded-md">
+          <div className="border border-emoji-blue bg-emoji-blue text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl">
+            {emoji}
+          </div>
+
+          <div className="pl-4 text-white">
+            <div className="font-bold opacity-90">{heading}</div>
+            <div className="opacity-60 py-1">{subtext}</div>
+          </div>
+        </div>
+      </label>
+    </div>
   );
 };
 
@@ -98,6 +119,7 @@ const useRegistration = () => {
     BudgetValidationSchema,
     EmailValidationSchema,
     TextInput,
+    RadioButton,
     data,
     marks,
   };

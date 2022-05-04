@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         "dark-blue": "#02044a",
-        "tailwind-blue": "#0f172a",
+        "emoji-blue": "#191a5a",
         "icon-background": "#8687a8",
       },
     },
