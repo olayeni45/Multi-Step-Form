@@ -11,10 +11,6 @@ const BudgetForm = () => {
   const { BudgetValidationSchema, marks, data } = useRegistration();
   const dispatch = useDispatch();
 
-  const handleBudgetSubmission = (values) => {
-    dispatch(nextStep(values));
-  };
-
   const currencyFormat = new Intl.NumberFormat("en-us", {
     style: "currency",
     currency: "USD",
@@ -27,7 +23,7 @@ const BudgetForm = () => {
       <Formik
         initialValues={data}
         validationSchema={BudgetValidationSchema}
-        onSubmit={handleBudgetSubmission}
+        onSubmit={(values) => dispatch(nextStep(values))}
       >
         <Form className="" action="#" method="POST">
           <div className="pb-4">

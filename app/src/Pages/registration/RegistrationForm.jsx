@@ -16,8 +16,8 @@ const RegistrationForm = () => {
         <Header />
 
         {/*Main component*/}
-        <main className="mt-8 grid grid-cols-3 border-t border-gray-500 border-opacity-60">
-          <div className="col-span-1 border-r border-gray-500 opacity-60 flex justify-center pt-10">
+        <main className="mt-8 grid grid-cols-3 border-t border-gray-500 border-opacity-60 h-full">
+          <div className="col-span-1 border-r border-gray-500 border-opacity-60 flex justify-center pt-10">
             <Navigation />
           </div>
           <div className="col-span-2 pt-10 pl-10">

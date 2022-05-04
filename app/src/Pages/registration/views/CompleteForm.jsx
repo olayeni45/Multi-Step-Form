@@ -3,23 +3,16 @@ import { Formik, Form } from "formik";
 import BackButton from "../../components/UI/BackButton";
 import Button from "../../components/UI/Button";
 import useRegistration from "../../../hooks/use-registration";
-import { useDispatch } from "react-redux";
-import { nextStep } from "../../../redux/slice/form-slice";
 
 const CompleteForm = () => {
   const { EmailValidationSchema, data, TextInput } = useRegistration();
-  const dispatch = useDispatch();
-
-  const handleEmailSubmission = (values) => {
-    console.log(values);
-  };
 
   return (
     <Fragment>
       <Formik
         initialValues={data}
         validationSchema={EmailValidationSchema}
-        onSubmit={handleEmailSubmission}
+        onSubmit={(values) => console.log(values)}
       >
         {({ isValid }) => (
           <Form className="" action="#" method="POST">

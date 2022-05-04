@@ -1,18 +1,12 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { jumpToView } from "../../redux/slice/form-slice";
+import { useSelector } from "react-redux";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RiPenNibFill } from "react-icons/ri";
 import { AiFillTag, AiOutlineMail } from "react-icons/ai";
 import { FiBookOpen } from "react-icons/fi";
 
 const Navigation = () => {
-  const dispatch = useDispatch();
   const { progress } = useSelector((state) => state.form.view);
-
-  const jumpToViewHandler = (view) => {
-    dispatch(jumpToView(view));
-  };
 
   const currentIconClassName = (view) => {
     return view === progress ? "bg-green-500" : "bg-slate-500";
@@ -31,11 +25,7 @@ const Navigation = () => {
             </div>
 
             <div className={`${currentIconClassName(1)} stepIcon`}>
-              <BsFillPersonFill
-                size={22}
-                color="white"
-                onClick={() => jumpToViewHandler(1)}
-              />
+              <BsFillPersonFill size={22} color="white" />
             </div>
           </div>
 
@@ -48,11 +38,7 @@ const Navigation = () => {
             </div>
 
             <div className={`${currentIconClassName(2)} stepIcon`}>
-              <FiBookOpen
-                size={22}
-                color="white"
-                onClick={() => jumpToViewHandler(2)}
-              />
+              <FiBookOpen size={22} color="white" />
             </div>
           </div>
 
@@ -65,11 +51,7 @@ const Navigation = () => {
             </div>
 
             <div className={`${currentIconClassName(3)} stepIcon`}>
-              <RiPenNibFill
-                size={22}
-                color="white"
-                onClick={() => jumpToViewHandler(3)}
-              />
+              <RiPenNibFill size={22} color="white" />
             </div>
           </div>
 
@@ -82,11 +64,7 @@ const Navigation = () => {
             </div>
 
             <div className={`${currentIconClassName(4)} stepIcon`}>
-              <AiFillTag
-                size={22}
-                color="white"
-                onClick={() => jumpToViewHandler(4)}
-              />
+              <AiFillTag size={22} color="white" />
             </div>
           </div>
 
@@ -99,11 +77,7 @@ const Navigation = () => {
             </div>
 
             <div className={`${currentIconClassName(5)} stepIcon`}>
-              <AiOutlineMail
-                size={22}
-                color="white"
-                onClick={() => jumpToViewHandler(5)}
-              />
+              <AiOutlineMail size={22} color="white" />
             </div>
           </div>
         </>
