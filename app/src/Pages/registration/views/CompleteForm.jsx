@@ -12,7 +12,7 @@ const CompleteForm = () => {
       <Formik
         initialValues={data}
         validationSchema={EmailValidationSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => alert(JSON.stringify(values))}
       >
         {({ isValid }) => (
           <Form className="" action="#" method="POST">
